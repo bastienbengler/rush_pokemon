@@ -1,0 +1,32 @@
+//
+// Pokemon.cpp for Pokemon in /home/bengle_b/test/rush_pokemon
+// 
+// Made by Bengler Bastien
+// Login   <bengle_b@epitech.net>
+// 
+// Started on  Fri Jan 23 19:15:39 2015 Bengler Bastien
+// Last update Fri Jan 23 19:17:36 2015 Bengler Bastien
+//
+
+#include "Pokemon.hpp"
+#include <iostream>
+
+void	Pokemon::setId(const int id)
+{
+  this->id = id;
+}
+
+int	Pokemon::getId() const
+{
+  return id;
+}
+
+void	Pokemon::setName(const std::string& name)
+{
+  this->name = name;
+}
+
+std::string&	Pokemon::getName() const
+{
+  return name;
+}

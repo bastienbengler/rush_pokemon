@@ -1,0 +1,178 @@
+      /"*-.                                                         
+     /     `-.                                                      
+    /         `-.                                                   
+   /             `-.                                                
+   `"*-._           `-.                                             
+         "*-.      .-'                                              
+           .-'  .-'                                                 
+         <'   <'                                                    
+          `-.  `-.           .                                      
+            .'  .-'          $                                      
+     _    .' .-'            :$;                                     
+     T$bp.L.-*""*-._        d$b                                     
+      `TP `-.       `-.    : T$                                     
+     .' `.   `.        `.  ;  ;                                     
+    /     `.   \ _.      \:  :                                      
+   /        `..-"         ;  |                                      
+  :          /               ;                                      
+  ;  \      / _             :  
+ /`--'\   .' $o$            |   Rush POKEMON
+/  /   `./-, `"'      _     :  
+'-'     :  ;  _ '    $o$    ;  
+        ;Y"   |"-.   `"'   /                                        
+        | `.  L.'    .-.  /`*.   
+        :   `-.     ;   :'    \                                     
+         ;    :`*-._L.-'`-.    :                                    
+         :    ;            `-.*                                     
+          \  /                                                      
+           ""                                                  
+
+Fichiers joints: Mdata.xml, pokedata.xml
+
+Etape 1) 
+
+Ecrivez un Pokedex. C'est a dire une encyclopedie des Pokemons. Vous
+DEVEZ afficher toutes les informations possible (attaques, evolutions...).
+On DOIT pouvoir voir quelles sont les evolutions d'un Pokemon.
+On DOIT pouvoir afficher a quel niveau on obtient une attaque ou les 
+evolutions possibles d'un Pokemon par exemple.
+Votre Pokedex DOIT comporter une interface graphique (coloree de preference).
+Un affichage par terminal ne sera pas accepte en soutenance.
+
+Reflechissez bien a la maniere dont vous aller representer un Pokemon
+ainsi qu'a la maniere de les afficher. 
+
+Etape 2)
+
+On DOIT pouvoir gerer une equipe de pokemons c'est a dire creer des
+pokemons en les selectionnants a partir d'un Pokedex et les regrouper dans
+un structure logique appellee "equipe".
+On DOIT pouvoir sauvegarder l'equipe et la recharger.
+Une sauvegarde d'equipe DOIT survivre a la fermeture de votre programme.
+Un Pokemon commence bien sur avec 0 points d'experience.
+Vous POUVEZ limiter le nombre de Pokemons presents dans une equipe selon le critere de votre choix.
+
+Une equipe DOIT avoir un proprietaire qui DOIT etre definit au minimum par son nom et son 
+avatar.
+Vous POUVEZ ajouter des caracteristiques au proprietaire si vous en avez besoin/envie.
+Un proprietaire PEUT posseder plusieurs equipes.
+Une equipe DOIT avoir obligatoirement un et un seul proprietaire.
+
+On DOIT pouvoir creer des proprietaires grace a une interface graphique.
+On DOIT pouvoir creer des equipes grace a une interface graphique.
+
+
+
+Etape 3)
+
+On DOIT pouvoir organiser des combats entre deux equipes de Pokemons.
+Ces combat DOIVENT avoir lieu dans une arene a Pokemons
+En fonction de leur niveau chaque pokemon DOIT proposer toute les attaques
+auquel il a le droit. 
+
+On DOIT pouvoir selectionner le Pokemon de chaque equipe qui commence le combat.
+Lorsqu'un Pokemon est battu, il ne DEVRAIT plus pouvoir participer au combat et
+un autre Pokemon DOIT pouvoir etre choisi pour continuer le combat.
+
+Le combat DOIT s'achever lorsque l'une des deux equipes n'a plus de Pokemons en 
+etat de combattre.
+Les 2 Pokemons d'affontant DOIVENT attaquer chacun leur tour en fonction de leur
+vitesse (SPD la plus elevee attaque en premier). Il ne DEVRAIT pas etre possible
+d'utiliser une attaque plus de PP fois pendant un combat.
+
+Pour calculer les degats d'une attaque, vous POUVEZ utiliser cette formule:
+ 
+ DEGATS a la cible = ((((2 * NIVEAU / 5 + 2) * ATK de l'attaquant * POWER de l'attaque / DEF de la cible) / 50) + 2) * STAB * (Faiblesse OR Resistance) * Random / 100
+
+Trop complexe ?
+Petite explication:
+STAB = Si l'attaque est du meme type que le pokemon, le STAB sera de 1.5. Sinon, de 1.
+Faiblesse/Resistance = une valeur dependant du type de l'attaque et du type de la cible. Les valeurs peuvent etre : 
+{ 0.25, 0.5, 1, 2, 4 } 
+selon l'efficacite.
+ 
+Si la premiere formule vous semble trop complexe, vous POUVEZ utiliser la suivante :
+DEGAT a la cible = (((2 * NIVEAU / 5 + 2) * ATK de l'attaquant * POWER de l'attaque / DEF de la cible) / 50 ) + 2
+
+Vous DEVEZ utiliser une de ces deux formules.
+
+Pour savoir si on touche vous DEVEZ utiliser cette formule:
+IF RANDOM(0,100) <  ACCURACY de l'attaque
+THEN 
+     TOUCHE
+ELSE
+     LOUPE
+END
+
+Lorsqu'un Pokemon est reduit a 0 points de vie, il DOIT etre mis hors de combat.
+Un pokemon qui en met en autre hors de combat DOIT gagner de l'experience.
+La valeur de ce gain est laissee a votre discretion.
+Une equipe qui en bat une autre DOIT gagner de l'experience pour chacun 
+de ses pokemons. La valeur de ce gain est egalement laissee a votre discretion.
+Lorsqu'un Pokemon gagne un niveau, ses stats DOIVENT evoluer.
+Lorsque qu'un Pokemon atteint un niveau lui pemettant d'evoluer, le Pokemon
+DOIT evoluer et le nouveau Pokemon DOIT remplacer l'ancien dans l'equipe.
+Le niveau maximum d'un Pokemon DOIT etre 100. 
+
+
+Consignes :
+
+
+- La base de donnees des pokemons vous est fournis au format XML.
+
+- Le fichier pokedata.xml contient la liste des pokemons. Le fichier
+  Mdata.xml contient la liste des techniques. Ces fichiers vous sont
+  donnes a titre informatifs. Vous POUVEZ creer vos propres fichiers,
+  mais ils DOIVENT respecter ce format. 
+  
+- Vos pokemons DOIVENT etre ceux des jeux, vous ne POUVEZ pas en
+  inventer de nouveaux.
+
+- Vos/votre interface(s) graphique(s) DOIVENT/DOIVENT etre belle(s)
+
+- Vous POUVEZ developper sous Unix ou sous Windows, comme vous le souhaitez.
+
+- Votre code DOIT etre du C++ elegant (references, const, ...)
+
+- Vos classes DOIVENT etre canoniques.
+
+- Le rush commence le lundi a 9h et se termine le dimanche a 23h42.
+
+- Les soutenances auront lieu la semaine du 2 fevrier. Les points que
+  vous obtiendrez avec ce projet seront alors ajoutees a votre pool de 
+  points pour la piscine, et vous recevrez probablement un sticker pour
+  votre participation.
+
+- Certains points de ce projet sont peut etre vagues, non precis ou contradictoires.
+  Ceci est typique d'un cahier des charges dans des conditions reelles.
+  Vous DEVEZ leur trouver une solution pertinentes que VOUS DEVEZ justifier.
+  Les demandes de precisions par mail ne seront pas repondues.
+  Vous DEVEZ reflechir et vous DEVEZ agir intelligemment par VOUS MEME.
+  Il n'y a pas de reponse universelle.
+  Cet aspect du projet fait partis de l'evaluation et sera present dans le bareme de soutenance.
+
+- Les groupes sont libres pour ce projet.
+
+
+Interdictions :
+
+- Who cares?
+
+
+Bonus :
+
+- Diagramme de sequence en plus du diagramme de classe (GROS bonus)
+- Votre projet affiche l'image de chaque pokemon. Le numero de chaque Pokemon et l'adresse http://lmgtfy.com/?q=liste+pokemons peuvent vous aider
+- On peut se connecter en reseau a une arene pour faire combattre son equipe. 
+- Les combats sont animes
+- Vous gerez les shinies.
+- Vous gerez l'entrainement des pokemons (et les IV/EV) : You're a madman.
+- Vous venez echanger des pokemons avec Belga.
+- ...
+
+
+Malus :
+
+- Chaque etape DOIT etre entierement terminee avant de passer a la suivante
+- Votre code ne DOIT PAS etre du C et/ou du C+
+- ...
