@@ -5,7 +5,7 @@
 // Login   <bengle_b@epitech.net>
 // 
 // Started on  Wed Jan 21 19:10:20 2015 Bengler Bastien
-// Last update Thu Jan 22 19:14:42 2015 Bengler Bastien
+// Last update Fri Jan 23 19:46:09 2015 Bengler Bastien
 //
 
 #ifndef POKEDEX_HPP_
@@ -19,8 +19,10 @@ public:
   Pokedex* next;
   Pokedex* prev;
   Pokemon *pokemon;
-  int root;
+  void setRoot(const int root);
+  int getRoot() const;
 private:
+  int _root;
 };
 
 

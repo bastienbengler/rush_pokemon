@@ -5,7 +5,7 @@
 // Login   <bengle_b@epitech.net>
 // 
 // Started on  Wed Jan 21 15:58:45 2015 Bengler Bastien
-// Last update Fri Jan 23 19:24:47 2015 Bengler Bastien
+// Last update Fri Jan 23 19:48:12 2015 Bengler Bastien
 //
 
 #include "linkedlist.hpp"
@@ -21,7 +21,7 @@ List<T>::List()
   list->pokemon = new Pokemon;
   list->pokemon->setId(0);
   list->pokemon->setName("");
-  list->root = 0;
+  list->setRoot(0);
   list->next = list;
   list->prev = list;
   std::cout << "ctor" << std::endl;
@@ -34,7 +34,7 @@ List<T>::~List()
 
   if (list && list->next)
     list = list->next;
-  while (list->root)
+  while (list->getRoot())
     {
       ptr = list->next;
       if (list->pokemon)
@@ -112,7 +112,7 @@ void	List<T>::putInList(const Pokemon& pokemon)
   tmp2->pokemon = poke;
   tmp2->pokemon->setId(pokemon.getId());
   tmp2->pokemon->setName(pokemon.getName());
-  tmp2->root = 1;
+  tmp2->setRoot(1);
   tmp2->prev = tmp;
   tmp2->next = list;
   list->prev = tmp2;
@@ -126,7 +126,7 @@ void	List<T>::dumplist()
 
   ptr = list;
   list = list->next;
-  while (list->root)
+  while (list->getRoot())
     {
       std::cout << "id : " << list->pokemon->getId() << std::endl;
       std::cout << "name : " << list->pokemon->getName() << std::endl;
